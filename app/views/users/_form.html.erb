@@ -1,0 +1,19 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+<div class="row">
+  <div class="large-8 columns">
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :gender, collection: [:male, :female] %>
+      <%= f.input :td, collection: [:td1, :td2, :td3, :td4] %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>  
+  </div>
+</div>
+
+<% end %>

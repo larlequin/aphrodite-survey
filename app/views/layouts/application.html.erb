@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="large-12 columns">
+
+        <!-- Navigation -->
+
+        <div class="row">
+          <div class="large-12 columns">
+
+            <nav class="top-bar">
+              <ul class="title-area">
+                <li class="name">
+                  <h1><a href="/">Questionnaire de ... </a></h1>
+                </li>
+              </ul>
+
+              <section class="top-bar-section">
+                <ul class="left title-area">
+                  <li class="divider"></li>
+                  <li><a> <%= session[:user_name] %></a></li>
+                </ul>
+              </section>
+            </nav>
+            <!-- End Top Bar -->
+          </div>
+        </div>
+        <!-- End Navigation -->
+
+        <!-- Content -->
+        <div class="row">
+          <div class="large-12 columns">
+            <%= yield %>
+          </div>
+        </div>
+        <!-- End Content -->
+
+        <!-- Footer -->
+        <footer class="row">
+          <div class="large-12 columns"><hr />
+            <div class="row">
+              <div class="large-6 columns">
+                <p>&copy; Copyright no one at all.</p>
+              </div>
+           </div>
+          </div>
+        </footer>
+        <!-- End Footer -->
+
+      </div>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
