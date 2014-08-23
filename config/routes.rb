@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :answers
+
+  resources :question_groups
+
+  resources :student_groups
+
+  resources :words
+
+  resources :questions
+
   #get 'site/index'
   root 'site#index'
   resources :users

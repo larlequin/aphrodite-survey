@@ -7,7 +7,7 @@
       <%= f.input :name %>
       <%= f.input :age %>
       <%= f.input :gender, collection: [:male, :female] %>
-      <%= f.input :td, collection: [:td1, :td2, :td3, :td4] %>
+      <%= f.association :student_group %>
     </div>
 
     <div class="form-actions">
