@@ -11,9 +11,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-        redirect_to root_path
         session[:user_id] = @user.id
         session[:user_name] = @user.name
+        session[:word_ids] = Word.pluck(:id).shuffle
+        word_id = session[:word_ids].shift
+        redirect_to :controller => 'words', :action => 'show', :id => word_id
     else
       respond_to do |format|
         format.html { render :new }
