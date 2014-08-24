@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823211940) do
+ActiveRecord::Schema.define(version: 20140823235021) do
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -24,18 +24,27 @@ ActiveRecord::Schema.define(version: 20140823211940) do
 
   create_table "question_groups", force: true do |t|
     t.string   "name"
-    t.integer  "student_group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "question_groups_student_groups", id: false, force: true do |t|
+    t.integer "question_group_id"
+    t.integer "student_group_id"
+  end
+
   create_table "questions", force: true do |t|
-    t.string   "type"
+    t.string   "key"
     t.string   "name"
     t.integer  "group_id"
-    t.boolean  "only_alive_word"
+    t.boolean  "only_not_living"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "questions_words", id: false, force: true do |t|
+    t.integer "question_id"
+    t.integer "word_id"
   end
 
   create_table "student_groups", force: true do |t|
