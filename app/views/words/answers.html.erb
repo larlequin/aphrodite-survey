@@ -2,13 +2,14 @@
 <%= simple_form_for(@word) do |f| %>
   <% @questions.each do |question| -%>
     <h3><%= question.name %></h3>
-    <%= f.simple_fields_for :questions, question, child_index: 'lalal' do |q| -%>
-       <%= q.simple_fields_for :answers, question.answers.find_or_initialize_by(user_id: session[:user_id], word_id: @word.id) do |a| -%>
+    <%= f.simple_fields_for question.id.to_s, question do |q| -%>
+       <%= q.simple_fields_for :answers do |a| -%>
        <%= render 'answer_fields', :f => a -%>
       <% end -%>
     <% end -%>
   <% end -%>
-<div class="actions">
-  <%= f.submit %>
-</div>
+<div class="form-actions">
+  <%= f.button :submit, "Valider" %>
+</div>  
+
 <% end -%>

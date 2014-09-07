@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         session[:question_group_ids] = @user.student_group.question_groups.pluck(:id)
         session[:current_question_group_id] = session[:question_group_ids].shift
         word_id = session[:word_ids].shift
-        redirect_to :controller => 'words', :action => 'show', :id => word_id
+        redirect_to :controller => 'words', :action => 'answers', :id => word_id
     else
       respond_to do |format|
         format.html { render :new }

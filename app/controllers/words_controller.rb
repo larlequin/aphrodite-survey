@@ -16,23 +16,20 @@ class WordsController < ApplicationController
     end
   end
 
-  # POST /answers
-  # POST /answers.json
-#  def create
-#    debbuger
-#    @word = Word.new(current_word_params)
-#
-#    respond_to do |format|
-#      if @word.save
-#        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-#        format.json { render :show, status: :created, location: @answer }
-#      else
-#        format.html { render :new }
-#        format.json { render json: @answer.errors, status: :unprocessable_entity }
-#      end
-#    end
-#  end
+  def update
+    word_params.each do | id, value |
+        answer = Answer.new(
+            user_id: session[:user_id],
+            question_id: id,
+            value: value["answers"]["value"],
+        )
+        answer.save
+    end
+    
+    word_id = session[:word_ids].shift
+    redirect_to :controller => 'words', :action => 'answers', :id => word_id
 
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -43,7 +40,7 @@ class WordsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     # TODO
     def word_params
-      params.require(:word).permit()
+      params.require(:word) # TODO FIXME.permit("question_1", "question_2", "question_3")
     end
 end
 
