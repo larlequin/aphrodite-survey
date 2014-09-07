@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'site#index'
-  resources :words#, :member => { :answer => :post }
+
+  resources :words do
+    get 'answers', on: :member
+  end
+
   resources :users
 end

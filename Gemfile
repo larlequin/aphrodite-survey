@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'simple_form'
 gem 'foundation-rails'
+gem 'cocoon'

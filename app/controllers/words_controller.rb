@@ -1,16 +1,21 @@
 class WordsController < ApplicationController
-  before_action :set_word, only: [:show]
+  before_action :set_word, only: [:show, :answer]
 
   # GET /words/1
   # GET /words/1.json
   def show
   end
-#
-#  def anwser
-#    @word = Word.new
-#    @current_word.name = "MY WORD"
-#  end
-#
+
+  def answers
+    @word = Word.find(params[:id])
+    @questions = []
+    @word.questions.each do | question |
+      if question.group_id == session[:current_question_group_id]
+        @questions.append(question)
+      end
+    end
+  end
+
   # POST /answers
   # POST /answers.json
 #  def create
@@ -26,7 +31,7 @@ class WordsController < ApplicationController
 #        format.json { render json: @answer.errors, status: :unprocessable_entity }
 #      end
 #    end
-  end
+#  end
 
 
   private
@@ -40,5 +45,5 @@ class WordsController < ApplicationController
     def word_params
       params.require(:word).permit()
     end
-
 end
+
