@@ -17,7 +17,7 @@ test: &TEST
 production:
   adapter: postgresql
   encoding: utf8
-  database: aphrodite_production
+  database: db
   pool: 5
   username: 
   password:
