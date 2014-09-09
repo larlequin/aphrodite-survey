@@ -19,6 +19,7 @@ class WordsController < ApplicationController
   def update
     word_params.each do | id, value |
         answer = Answer.new(
+            word_id: params[:id],
             user_id: session[:user_id],
             question_id: id,
             value: value["answers"]["value"],
