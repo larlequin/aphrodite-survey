@@ -1,7 +1,7 @@
 <h1><%= @word.name %></h1>
 <%= simple_form_for(@word) do |f| %>
   <% @questions.each do |question| -%>
-    <h3><%= question.name %></h3>
+    <h4><%= question.name %></h4>
     <%= f.simple_fields_for question.id.to_s, question do |q| -%>
        <%= q.simple_fields_for :answers do |a| -%>
        <%= render 'answer_fields', :f => a -%>
