@@ -1,15 +1,15 @@
-question_group,only_not_alive_word,key,name
-0,0,Familiarité,Dans quelle mesure connaissez-vous ce mot ?
-0,0,Fréquence subjective,Est-ce que vous pensez rencontrer fréquemment ce mot dans la langue parlée et écrite ?
-0,0,Concrétude,Pouvez-vous déterminer le degré de concrétude en termes d’expériences sensorielles en relation avec le concept évoqué par ce mot ?
-1,0,Imagerie visuelle,"Est-ce que ce mot vous évoque une image mentale très facilement, très rapidement et spontanément ou au contraire s’il vous évoque une image mentale très difficilement, lentement voir même n’évoque aucun image mentale ?"
-1,0,Imagerie auditive,"Est-ce que ce mot vous évoque un son associé très facilement, très rapidement et spontanément ou au contraire s’il vous évoque un son associé très difficilement, lentement voir même n’évoque aucun son ?"
-1,1,Imagerie motrice,"Est-ce que ce mot vous évoque un geste associé très facilement, très rapidement et spontanément ou au contraire s’il vous évoque un geste associé très difficilement, lentement voir même n’évoque aucun geste ?"
-1,0,Grand/Petit,Est-ce que ce mot correspond à quelque chose de petit ou grand ?
-2,0,Valence,Est-ce que ce mot génère chez vous un sentiment agréable ou désagréable ?
-2,0,Arousal,Le mot génère-t-il chez vous un sentiment fort ou très faible voire pas du tout ?
-3,0,Visuelle,"Dans quelle mesure ressentez-vous le mot, en le regardant ?"
-3,0,Auditive,"Dans quelle mesure ressentez-vous le mot, en l'entendant ?"
-3,0,Olfactive,"Dans quelle mesure ressentez-vous le mot, en le sentant ?"
-3,0,Gustative,"Dans quelle mesure ressentez-vous le mot, en le goûtant ?"
-3,0,Haptique,"Dans quelle mesure ressentez-vous le mot, en le touchant ?"
+question_group,key,name,min,max
+0,Familiarité,Dans quelle mesure connaissez-vous ce mot ?,pas du tout,totalement
+0,Fréquence subjective,Est-ce que vous pensez rencontrer fréquemment ce mot dans la langue parlée et écrite ?,jamais,très fréquemment
+0,Concrétude,Ce mot vous évoque-t'il quelque chose de concret (directement perceptible par les sens) ?,pas du tout,totalement
+1,Imagerie visuelle,"Est-ce que ce mot vous évoque une image mentale très facilement, très rapidement et spontanément ou au contraire s’il vous évoque une image mentale très difficilement, lentement voir même n’évoque aucun image mentale ?",très difficilement,très facilement
+1,Imagerie auditive,"Est-ce que ce mot vous évoque un son associé très facilement, très rapidement et spontanément ou au contraire s’il vous évoque un son associé très difficilement, lentement voir même n’évoque aucun son ?",très difficilement,très facilement
+1,Imagerie motrice,"Est-ce que ce mot vous évoque un geste associé très facilement, très rapidement et spontanément ou au contraire s’il vous évoque un geste associé très difficilement, lentement voir même n’évoque aucun geste ?",très difficilement,très facilement
+1,Grand/Petit,Est-ce que ce mot correspond à quelque chose de petit ou grand ?,très petit,très grand
+2,Valence,Est-ce que ce mot génère chez vous un sentiment agréable ou désagréable ?,très désagréable,très agréable
+2,Arousal,Le mot génère-t-il chez vous un sentiment fort ou très faible voire pas du tout ?,pas du tout,très fort
+3,Visuelle,"Dans quelle mesure ressentez-vous le mot, en le regardant ?",pas du tout,grandement
+3,Auditive,"Dans quelle mesure ressentez-vous le mot, en l'entendant ?",pas du tout,grandement
+3,Olfactive,"Dans quelle mesure ressentez-vous le mot, en le sentant ?",pas du tout,grandement
+3,Gustative,"Dans quelle mesure ressentez-vous le mot, en le goûtant ?",pas du tout,grandement
+3,Haptique,"Dans quelle mesure ressentez-vous le mot, en le touchant ?",pas du tout,grandement

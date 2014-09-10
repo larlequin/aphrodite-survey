@@ -1,121 +1,25 @@
-exclude_question_keys,name
-Imagerie motrice,abeille
-Imagerie motrice,aigle
-Imagerie motrice,âne
-Imagerie motrice,canard
-Imagerie motrice,chat
-Imagerie motrice,chien
-Imagerie motrice,chouette
-Imagerie motrice,cigale
-Imagerie motrice,cochon
-Imagerie motrice,grenouille
-Imagerie motrice,mésange
-Imagerie motrice,oie
-Imagerie motrice,perroquet
-Imagerie motrice,rat
-Imagerie motrice,souris
-Imagerie motrice,fourmi
-Imagerie motrice,cygne
-Imagerie motrice,escargot
-Imagerie motrice,lapin
-Imagerie motrice,papillon
-Imagerie motrice,sauterelle
-Imagerie motrice,souris
-Imagerie motrice,tortue
-Imagerie motrice,hérisson
-Imagerie motrice,coccinelle
-Imagerie motrice,écureuil
-Imagerie motrice,araignée
-Imagerie motrice,lézard
-Imagerie motrice,libellule
-Imagerie motrice,rat
-,accordéon
-,aspirateur
-,banjo
-,cloche
-,harmonica
-,maracas
-,micro-onde
-,pistolet
-,rasoir
-,réveil
-,sèche-cheveux
-,tamtam
-,téléphone
-,violon
-,tam-tam
-,livre
-,lunettes
-,passoire
-,pince à linge
-,pinceau
-,rouge à lèvres
-,tirelire
-,tournevis
-,stylo
-,colle
-,casserole
-,bouteille
-,journal
-,trombonne
-,éponge
-Imagerie motrice,cheval
-Imagerie motrice,éléphant
-Imagerie motrice,dauphin
-Imagerie motrice,lion
-Imagerie motrice,loup
-Imagerie motrice,mouton
-Imagerie motrice,ours
-Imagerie motrice,puma
-Imagerie motrice,sanglier
-Imagerie motrice,tigre
-Imagerie motrice,vache
-Imagerie motrice,vautour
-Imagerie motrice,zèbre
-Imagerie motrice,requin
-Imagerie motrice,pingouin
-Imagerie motrice,girafe
-Imagerie motrice,kangourou
-Imagerie motrice,koala
-Imagerie motrice,panda
-Imagerie motrice,rhinocéros
-Imagerie motrice,renard
-Imagerie motrice,crocodile
-Imagerie motrice,chameau
-Imagerie motrice,baleine
-Imagerie motrice,requin
-Imagerie motrice,hippopotame
-Imagerie motrice,cerf
-Imagerie motrice,orque
-Imagerie motrice,morse
-Imagerie motrice,buffle
-,télévision
-,lave-vaisselle
-,contrebasse
-,hélicoptère
-,trompette
-,moto
-,piano
-,statut
-,tapis
-,voiture
-,botte de foin
-,bateau
-,avion
-,hélicoptère
-,ski
-,montgolfière
-,chaise
-,parachute
-,poubelle
-,valise
-,armoire
-,lit
-,portemanteau
-,rideau
-,balançoire
-,banc
-,aquarium
-,fenêtre
-,bureau
-,bibliothèque
+exclude_question_keys,name,alive,sound,size
+Imagerie motrice,Abeille,vivant,sonore,petit
+Imagerie motrice,Aigle,vivant,sonore,petit
+Imagerie motrice,Ane,vivant,sonore,petit
+Imagerie motrice,Fourmi,vivant,non sonore,petit
+Imagerie motrice,Cygne,vivant,non sonore,petit
+Imagerie motrice,Escargot,vivant,non sonore,petit
+,Accordéon,non vivant,sonore,petit
+,Aspirateur,non vivant,sonore,petit
+,Banjo,non vivant,sonore,petit
+,Livre,non vivant,non sonore,petit
+,Lunette,non vivant,non sonore,petit
+,Passoire,non vivant,non sonore,petit
+Imagerie motrice,Cheval,vivant,sonore,grand
+Imagerie motrice,Elephant,vivant,sonore,grand
+Imagerie motrice,Dauphin,vivant,sonore,grand
+Imagerie motrice,Girafe,vivant,non sonore,grand
+Imagerie motrice,Kangourou,vivant,non sonore,grand
+Imagerie motrice,Koala,vivant,non sonore,grand
+,Télévision,non vivant,sonore,grand
+,Lave-vaisselle,non vivant,sonore,grand
+,Contrebasse,non vivant,sonore,grand
+,Montgolfière,non vivant,non sonore,grand
+,Chaise,non vivant,non sonore,grand
+,Parachute,non vivant,non sonore,grand
