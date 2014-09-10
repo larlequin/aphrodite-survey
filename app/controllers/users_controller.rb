@@ -4,19 +4,23 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    if session[:user_id]
+      redirect_to :controller => 'words', :action => 'answers', :id => session[:current_word_id]
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.start = Time.now
     if @user.save
         session[:user_id] = @user.id
         session[:user_name] = @user.name
         session[:word_ids] = Word.pluck(:id).shuffle
         session[:question_group_ids] = @user.student_group.question_groups.pluck(:id)
-        session[:current_question_group_id] = session[:question_group_ids].shift
         word_id = session[:word_ids].shift
+        session[:current_word_id] = word_id
         redirect_to :controller => 'words', :action => 'answers', :id => word_id
     else
       respond_to do |format|

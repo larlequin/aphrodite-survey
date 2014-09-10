@@ -1,10 +1,15 @@
 <h1><%= @word.name %></h1>
 <%= simple_form_for(@word) do |f| %>
   <% @questions.each do |question| -%>
-    <h4><%= question.name %></h4>
+    <h2 class="question"><%= question.name %></h2>
     <%= f.simple_fields_for question.id.to_s, question do |q| -%>
-       <%= q.simple_fields_for :answers do |a| -%>
-       <%= render 'answer_fields', :f => a -%>
+      <%= q.simple_fields_for :answers do |a| -%>
+        <div class="row">
+          <div class="large-1 columns"><%= question.min %></div>
+          <%= render 'answer_fields', :f => a -%>
+          <div class="large-1 columns"><%= question.max %></div>
+          <div class="large-6 columns"></div>
+        </div>
       <% end -%>
     <% end -%>
   <% end -%>

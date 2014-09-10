@@ -5,7 +5,8 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :name
       t.integer :group_id
       t.boolean :only_not_living
-
+      t.string :min
+      t.string :max
       t.timestamps
     end
   end

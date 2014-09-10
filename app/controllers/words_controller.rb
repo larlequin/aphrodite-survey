@@ -9,9 +9,12 @@ class WordsController < ApplicationController
   def answers
     @word = Word.find(params[:id])
     @questions = []
-    @word.questions.each do | question |
-      if question.group_id == session[:current_question_group_id]
-        @questions.append(question)
+
+    session[:question_group_ids].each do | group_id |
+      @word.questions.each do | question |
+        if question.group_id == group_id
+          @questions.append(question)
+        end
       end
     end
   end
@@ -26,10 +29,17 @@ class WordsController < ApplicationController
         )
         answer.save
     end
-    
-    word_id = session[:word_ids].shift
-    redirect_to :controller => 'words', :action => 'answers', :id => word_id
-
+    if session[:word_ids].size == 0
+      user = User.find(session[:user_id])
+      user.stop = Time.now
+      user.save
+      reset_session
+      redirect_to '/end'
+    else
+      word_id = session[:word_ids].shift
+      session[:current_word_id] = word_id
+      redirect_to :controller => 'words', :action => 'answers', :id => word_id
+    end
   end
 
   private

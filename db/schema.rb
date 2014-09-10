@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20140823235021) do
     t.string   "name"
     t.integer  "group_id"
     t.boolean  "only_not_living"
+    t.string   "min"
+    t.string   "max"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,7 +71,9 @@ ActiveRecord::Schema.define(version: 20140823235021) do
 
   create_table "words", force: true do |t|
     t.string   "name"
-    t.boolean  "alive"
+    t.string   "alive"
+    t.string   "sound"
+    t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

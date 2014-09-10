@@ -30,6 +30,8 @@ CSV.foreach(question_file, :headers => true, :encoding => 'UTF-8') do |row|
     name: row['name'],
     only_not_living: row['only_not_living'],
     group_id: question_group.id,
+    min: row['min'],
+    max: row['max'],
     )
 end
 
@@ -49,6 +51,9 @@ CSV.foreach(word_file, :headers => true, :encoding => 'UTF-8') do |row|
   Word.create(
     name: row['name'],
     question_ids: question_ids,
+    alive: row['alive'],
+    sound: row['sound'],
+    size: row['size'],
     )
 end
 
