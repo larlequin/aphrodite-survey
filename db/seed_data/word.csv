@@ -1,25 +1,121 @@
-exclude_question_keys,name,alive,sound,size
-Imagerie motrice,Abeille,vivant,sonore,petit
-Imagerie motrice,Aigle,vivant,sonore,petit
-Imagerie motrice,Ane,vivant,sonore,petit
-Imagerie motrice,Fourmi,vivant,non sonore,petit
-Imagerie motrice,Cygne,vivant,non sonore,petit
-Imagerie motrice,Escargot,vivant,non sonore,petit
-,Accordéon,non vivant,sonore,petit
-,Aspirateur,non vivant,sonore,petit
-,Banjo,non vivant,sonore,petit
-,Livre,non vivant,non sonore,petit
-,Lunette,non vivant,non sonore,petit
-,Passoire,non vivant,non sonore,petit
-Imagerie motrice,Cheval,vivant,sonore,grand
-Imagerie motrice,Elephant,vivant,sonore,grand
-Imagerie motrice,Dauphin,vivant,sonore,grand
-Imagerie motrice,Girafe,vivant,non sonore,grand
-Imagerie motrice,Kangourou,vivant,non sonore,grand
-Imagerie motrice,Koala,vivant,non sonore,grand
-,Télévision,non vivant,sonore,grand
-,Lave-vaisselle,non vivant,sonore,grand
-,Contrebasse,non vivant,sonore,grand
-,Montgolfière,non vivant,non sonore,grand
-,Chaise,non vivant,non sonore,grand
-,Parachute,non vivant,non sonore,grand
+exclude_question_keys,name,alive,sound,size,
+Imagerie motrice,Abeille,1,1,0,1
+Imagerie motrice,Aigle,1,1,0,2
+Imagerie motrice,Canard,1,1,0,3
+Imagerie motrice,Chat,1,1,0,4
+Imagerie motrice,Chien,1,1,0,5
+Imagerie motrice,Chouette,1,1,0,6
+Imagerie motrice,Cigale,1,1,0,7
+Imagerie motrice,Cochon,1,1,0,8
+Imagerie motrice,Grenouille,1,1,0,9
+Imagerie motrice,Mésange,1,1,0,10
+Imagerie motrice,Oie,1,1,0,11
+Imagerie motrice,Perroquet,1,1,0,12
+Imagerie motrice,Fourmi,1,0,0,1
+Imagerie motrice,Fleur,1,0,0,2
+Imagerie motrice,Escargot,1,0,0,3
+Imagerie motrice,Lapin,1,0,0,4
+Imagerie motrice,Papillon,1,0,0,5
+Imagerie motrice,Sauterelle,1,0,0,6
+Imagerie motrice,Souris,1,0,0,7
+Imagerie motrice,Champignon,1,0,0,8
+Imagerie motrice,Hérisson,1,0,0,9
+Imagerie motrice,Ecureuil,1,0,0,10
+Imagerie motrice,Araignée,1,0,0,11
+Imagerie motrice,Pomme,1,0,0,12
+,Accordéon,0,1,0,1
+,Aspirateur,0,1,0,2
+,Guitare,0,1,0,3
+,Cloche,0,1,0,4
+,Harmonica,0,1,0,5
+,Maracas,0,1,0,6
+,Micro-onde,0,1,0,7
+,Pistolet,0,1,0,8
+,Rasoir,0,1,0,9
+,Réveil,0,1,0,10
+,Sèche-cheveux,0,1,0,11
+,Téléphone,0,1,0,12
+,Livre,0,0,0,1
+,Lunette,0,0,0,2
+,Eponge,0,0,0,3
+,Pince à linge,0,0,0,4
+,Pinceau,0,0,0,5
+,Rouge à lèvres,0,0,0,6
+,Journal,0,0,0,7
+,Tournevis,0,0,0,8
+,Stylo,0,0,0,9
+,Colle,0,0,0,10
+,Casserole,0,0,0,11
+,Bouteille,0,0,0,12
+Imagerie motrice,Cheval,1,1,1,1
+Imagerie motrice,Elephant,1,1,1,2
+Imagerie motrice,Dauphin,1,1,1,3
+Imagerie motrice,Lion,1,1,1,4
+Imagerie motrice,Loup,1,1,1,5
+Imagerie motrice,Mouton,1,1,1,6
+Imagerie motrice,Ours,1,1,1,7
+Imagerie motrice,Sanglier,1,1,1,8
+Imagerie motrice,Tigre,1,1,1,9
+Imagerie motrice,Vache,1,1,1,10
+Imagerie motrice,Vautour,1,1,1,11
+Imagerie motrice,Pingouin,1,1,1,12
+Imagerie motrice,Girafe,1,0,1,1
+Imagerie motrice,Kangourou,1,0,1,2
+Imagerie motrice,Koala,1,0,1,3
+Imagerie motrice,Panda,1,0,1,4
+Imagerie motrice,Rhinocéros,1,0,1,5
+Imagerie motrice,Crocodile,1,0,1,6
+Imagerie motrice,Chameau,1,0,1,7
+Imagerie motrice,Baleine,1,0,1,8
+Imagerie motrice,Requin,1,0,1,9
+Imagerie motrice,Hippopotame,1,0,1,10
+Imagerie motrice,Cerf,1,0,1,11
+Imagerie motrice,Arbre,1,0,1,12
+,Télévision,0,1,1,1
+,Lave-vaisselle,0,1,1,2
+,Contrebasse,0,1,1,3
+,Hélicoptère,0,1,1,4
+,Trompette,0,1,1,5
+,Moto,0,1,1,6
+,Piano,0,1,1,7
+,Voiture,0,1,1,8
+,Bateau,0,1,1,9
+,Avion,0,1,1,10
+,Tracteur,0,1,1,11
+,Ski,0,1,1,12
+,Statue,0,0,1,1
+,Botte de foin,0,0,1,2
+,Montgolfière,0,0,1,3
+,Chaise,0,0,1,4
+,Parachute,0,0,1,5
+,Valise,0,0,1,6
+,Armoire,0,0,1,7
+,Porte-manteau,0,0,1,8
+,Balançoire,0,0,1,9
+,Bibliothèque,0,0,1,10
+,Aquarium,0,0,1,11
+,Tapis,0,0,1,12
+,Liberté,0,0,0,1
+,Justice,0,0,0,2
+,Peur,0,0,0,3
+,Joie,0,0,0,4
+,Froid,0,0,0,5
+,Chaleur,0,0,0,6
+,Tristesse,0,0,0,7
+,Volonté,0,0,0,8
+,Plaisir,0,0,0,9
+,Déception,0,0,0,10
+,Compétition,0,0,0,11
+,Conséquence,0,0,0,12
+,Confiance,0,0,0,1
+,Amertume,0,0,0,2
+,Connaissance,0,0,0,3
+,Opposition,0,0,0,4
+,Succès,0,0,0,5
+,Situation,0,0,0,6
+,Acide,0,0,0,7
+,Paix,0,0,0,8
+,Réflexion,0,0,0,9
+,Parfum,0,0,0,10
+,Honneur,0,0,0,11
+,Intelligence,0,0,0,12
