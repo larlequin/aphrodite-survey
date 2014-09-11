@@ -1,20 +1,31 @@
 <h1><%= @word.name %></h1>
 <%= simple_form_for(@word) do |f| %>
-  <% @questions.each do |question| -%>
-    <h2 class="question"><%= question.name %></h2>
-    <%= f.simple_fields_for question.id.to_s, question do |q| -%>
-      <%= q.simple_fields_for :answers do |a| -%>
-        <div class="row">
-          <div class="large-1 columns"><%= question.min %></div>
-          <%= render 'answer_fields', :f => a -%>
-          <div class="large-1 columns"><%= question.max %></div>
-          <div class="large-6 columns"></div>
-        </div>
-      <% end -%>
-    <% end -%>
+  <%= f.error_notification %>
+  <% session[:question_group_ids].each do | group_id | -%>
+     <% @word.questions.each do | question | -%>
+        <% if question.group_id == group_id -%>
+          <h2 class="question"><%= question.name %></h2>
+          <%= f.simple_fields_for :answers, question.answers.find_or_initialize_by(user_id: session[:user_id], word_id: @word.id, question_id: question.id) do |a| -%>
+            <div class="row">
+              <div class="large-1 columns"><%= question.min %></div>
+              <div class='nested-fields large-4 columns'>
+              <%= a.collection_radio_buttons :value,
+                        [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+                        :first,
+                        :last,
+                        collection_wrapper_tag: 'div'
+                      -%>
+              <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
+              <%= a.input :question_id, :as => :hidden, :input_html => {:value => question.id} -%> 
+              </div>
+              <div class="large-1 columns"><%= question.max %></div>
+              <div class="large-6 columns"></div>
+            </div>
+          <% end -%>
+        <% end -%>
+     <% end-%>
   <% end -%>
-<div class="form-actions">
-  <%= f.button :submit, "Valider" %>
-</div>  
-
+  <div class="form-actions">
+    <%= f.button :submit, "Valider" %>
+  </div>  
 <% end -%>

@@ -1,6 +1,8 @@
 class Word < ActiveRecord::Base
   has_and_belongs_to_many :questions
-
+  has_many :answers
+  accepts_nested_attributes_for :answers, :reject_if => :all_blank
+  
   def get_question(user_id)
     user = User.find(user_id)
     question_group_ids = user.student_group.question_group_ids
