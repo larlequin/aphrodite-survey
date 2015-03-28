@@ -16,9 +16,17 @@
 
  */
 
+h1 {
+  font-size: 2.5rem;
+}
+
 .question {
-  margin-top: 25px;
-  font-size: 1.3rem;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.question_answer {
+  margin-top: 20px;
 }
 
 .instruction {
@@ -26,4 +34,28 @@
   font-size: 1.3rem;
   line-height: 30px;
   margin-bottom: 45px;
+}
+
+label {
+  font-size: 1.5rem;
+  margin-right: 4rem;
+}
+
+label.collection_radio_buttons {
+  margin-right: 4.5rem;
+}
+.last {
+  margin-top: 40px;
+}
+.word {
+  font-weight: bold;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
 }

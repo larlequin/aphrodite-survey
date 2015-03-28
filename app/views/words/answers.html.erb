@@ -1,31 +1,43 @@
-<h1><%= @word.name %></h1>
+<h1>Dans quelle mesure ressentez-vous <span class="word">"<%= @word.name %>"</span> ?</h1>
 <%= simple_form_for(@word) do |f| %>
-  <%= f.error_notification %>
-  <% session[:question_group_ids].each do | group_id | -%>
-     <% @word.questions.each do | question | -%>
-        <% if question.group_id == group_id -%>
-          <h2 class="question"><%= question.name %></h2>
-          <%= f.simple_fields_for :answers, question.answers.find_or_initialize_by(user_id: session[:user_id], word_id: @word.id, question_id: question.id) do |a| -%>
-            <div class="row">
-              <div class="large-1 columns"><%= question.min %></div>
-              <div class='nested-fields large-4 columns'>
-              <%= a.collection_radio_buttons :value,
-                        [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
-                        :first,
-                        :last,
-                        collection_wrapper_tag: 'div'
-                      -%>
-              <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
-              <%= a.input :question_id, :as => :hidden, :input_html => {:value => question.id} -%> 
-              </div>
-              <div class="large-1 columns"><%= question.max %></div>
-              <div class="large-6 columns"></div>
+  <div class="progress large-12 success round">
+    <span class="meter" style="width: <%= @rate %>%"></span>
+  </div> 
+  
+  <% if @error %>
+    <div class="alert-box alert">Veuillez répondre à toute les questions</div>
+  <% end %>
+     <% @questions.each do | question | -%>
+          <div class="large-12 columns question_answer">
+          <% if question.id < 6 %> 
+            <div class="question large-4 columns"><%= question.name %></div>
+            <div class='nested-fields large-8 columns'>
+          <% else %>
+            <div class="question large-5 columns last"><%= question.name %></div>
+            <div class='nested-fields large-7 columns last'>
+          <% end %>
+            <%= f.simple_fields_for :answers, question.answers.find_or_initialize_by(
+              user_id: session[:user_id],
+              word_id: @word.id,
+              question_id: question.id) do |a| -%>
+              <% if question.id < 6 %> 
+                <%= a.collection_radio_buttons :value,
+                          [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+                          :first,
+                          :last,
+                          collection_wrapper_tag: 'div'
+                        -%>
+              <% else %>
+                <%= a.input :value, as: :boolean, checked_value: 1, unchecked_value: 0, label: false -%>
+              <% end %>
+ 
+                <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
+                <%= a.input :question_id, :as => :hidden, :input_html => {:value => question.id} -%> 
+            <% end -%>
             </div>
-          <% end -%>
-        <% end -%>
-     <% end-%>
+          </div>
   <% end -%>
   <div class="form-actions">
-    <%= f.button :submit, "Valider" %>
+    <%= f.button :submit, "Valider", :class => "success right" %>
   </div>  
 <% end -%>

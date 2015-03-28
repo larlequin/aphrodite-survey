@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     if session[:user_id]
-      redirect_to :controller => 'words', :action => 'answers', :id => session[:current_word_id]
+      redirect_to :controller => 'words', 
+        :action => 'answers',
+        :id => session[:current_word_id]
     end
   end
 
@@ -17,8 +19,9 @@ class UsersController < ApplicationController
     if @user.save
         session[:user_id] = @user.id
         session[:user_name] = @user.name
-        session[:word_ids] = Word.pluck(:id).shuffle
-        session[:question_group_ids] = @user.student_group.question_groups.pluck(:id)
+        group_id = @user.id.modulo(2) + 1
+        session[:word_ids] = Word.where(group_id: group_id).pluck(:id).shuffle
+        session[:total_word] = session[:word_ids].size
         word_id = session[:word_ids].shift
         session[:current_word_id] = word_id
         redirect_to :controller => 'words', :action => 'answers', :id => word_id
@@ -38,6 +41,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :age, :gender, :student_group_id)
+      params.require(:user).permit(
+        :name, :age, :gender, :question1, :question2,
+        :question3, :question4, :question5)
     end
 end

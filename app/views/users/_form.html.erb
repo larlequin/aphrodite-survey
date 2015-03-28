@@ -2,16 +2,79 @@
   <%= f.error_notification %>
 
 <div class="row">
-  <div class="large-8 columns">
+  <div class="large-12 columns">
     <div class="form-inputs">
-      <%= f.input :name, label: 'Nom' %>
-      <%= f.input :age %>
-      <%= f.input :gender, collection: [:male, :female], label: 'Sexe'%>
-      <%= f.association :student_group, label: 'Groupe de TD' %>
-    </div>
+      <div class="large-6 columns">
+        <%= f.input :name, label: 'Nom' %>
+        <%= f.input :age %>
+        <%= f.input :gender, collection: [:male, :female], label: 'Sexe'%>
+      </div>
+      <div class="large-12 columns">
+        <div class="large-12 columns"><h3>Comment jugez-vous votre vue ?</h3></div>
+        <div class="large-12 columns">
+        <%= f.collection_radio_buttons :question1,
+                [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
+                :first,
+                :last,
+                collection_wrapper_tag: 'div',
+                required: true
+              -%>
+        </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Valider"%>
+        <div class="large-12 columns"><h3>Comment jugez-vous votre audition ?</h3></div>
+        <div class="large-12 columns">
+        <%= f.collection_radio_buttons :question2,
+                [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
+                :first,
+                :last,
+                collection_wrapper_tag: 'div',
+                required: true
+              -%>
+        </div>
+
+        <div class="large-12 columns"><h3>Comment jugez-vous votre sensibilité olfactive ?</h3></div>
+        <div class="large-12 columns">
+        <%= f.collection_radio_buttons :question3,
+                [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
+                :first,
+                :last,
+                collection_wrapper_tag: 'div',
+                required: true
+              -%>
+        </div>
+ 
+        <div class="large-12 columns"><h3>Comment jugez-vous votre sensibilité gustative ?</h3></div>
+        <div class="large-12 columns">
+        <%= f.collection_radio_buttons :question4,
+                [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
+                :first,
+                :last,
+                collection_wrapper_tag: 'div',
+                required: true
+              -%>
+        </div>
+
+        <div class="large-12 columns"><h3>Comment jugez-vous votre tactile ?</h3></div>
+        <div class="large-12 columns">
+        <%= f.collection_radio_buttons :question5,
+                [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
+                :first,
+                :last,
+                collection_wrapper_tag: 'div',
+                required: true
+              -%>
+        </div>
+      </div>
+
+      <div class="large-12 columns">
+        <div class="large-12 columns">
+          <h3>Avez-vous des troubles sensoriels ou moteurs ?</h3>
+          <%= f.input :trouble, label: false  %>
+        </div>
+      </div>
+
+      <div class="form-actions large-12 columns">
+      <%= f.button :submit, "Valider", :class => "success right" %>
     </div>  
   </div>
 </div>

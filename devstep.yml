@@ -1,0 +1,6 @@
+commands:
+  server:
+    publish: ["3000:3000"]
+
+provision:
+  - ['configure-addons', 'postgresql']
