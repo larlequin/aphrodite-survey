@@ -1,6 +1,11 @@
 commands:
   server:
     publish: ["3000:3000"]
-
+    cmd: ["rails", "server"]
+    environment:
+      POSTGRESQL_DATA: "/workspace/.db"
 provision:
   - ['configure-addons', 'postgresql']
+environment:
+  POSTGRESQL_DATA: "/workspace/.db"
+
