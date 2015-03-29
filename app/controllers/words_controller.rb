@@ -8,7 +8,7 @@ class WordsController < ApplicationController
 
   def set_variable
     @word = Word.find(params[:id])
-    @rate = (session[:total_word] - session[:word_ids].size - 1) * 100 / session[:total_word] 
+    @rate = (session[:total_word] - session[:word_ids].size - 1) * 100.0 / session[:total_word] 
     @questions = []
     Question.all.each do | question |
       @questions << question
