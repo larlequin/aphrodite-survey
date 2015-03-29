@@ -5,16 +5,15 @@
   </div> 
   
   <% if @error %>
-    <div class="alert-box alert">Veuillez répondre à toute les questions</div>
+    <div class="alert-box alert">Veuillez répondre à toutes les questions</div>
   <% end %>
      <% @questions.each do | question | -%>
           <div class="large-12 columns question_answer">
           <% if question.id < 6 %> 
-            <div class="question large-4 columns"><%= question.name %></div>
-            <div class='nested-fields large-8 columns'>
+            <div class="question large-4 small-12 columns"><%= question.name %></div>
+            <div class='nested-fields large-8 small-12 columns'>
           <% else %>
-            <div class="question large-5 columns last"><%= question.name %></div>
-            <div class='nested-fields large-7 columns last'>
+              <div class='nested-fields large-1 small-1 columns last'>
           <% end %>
             <%= f.simple_fields_for :answers, question.answers.find_or_initialize_by(
               user_id: session[:user_id],
@@ -35,9 +34,14 @@
                 <%= a.input :question_id, :as => :hidden, :input_html => {:value => question.id} -%> 
             <% end -%>
             </div>
+          <% if question.id == 6 %> 
+              <div class="question large-5 small-11 olumns last"><%= question.name %></div>
+            <div class='nested-fields large-6 small-12 columns last'/>
+          <% end %>
+
           </div>
   <% end -%>
   <div class="form-actions">
-    <%= f.button :submit, "Valider", :class => "success right" %>
+    <%= f.button :submit, "Suivant", :class => "success right" %>
   </div>  
 <% end -%>

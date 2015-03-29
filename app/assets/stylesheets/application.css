@@ -21,7 +21,7 @@ h1 {
 }
 
 .question {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 10px;
 }
 
@@ -37,7 +37,7 @@ h1 {
 }
 
 label {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-right: 4rem;
 }
 
@@ -52,6 +52,7 @@ label.collection_radio_buttons {
 }
 
 h3 {
+  font-size: 1.2rem;
   margin-top: 20px;
 }
 
