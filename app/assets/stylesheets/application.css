@@ -25,6 +25,11 @@ h1 {
   margin-top: 10px;
 }
 
+.question-label {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
 .question_answer {
   margin-top: 20px;
 }

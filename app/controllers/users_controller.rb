@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
         session[:user_id] = @user.id
         session[:user_name] = @user.name
-        group_id = @user.id.modulo(2) + 1
+        group_id = @user.id.modulo(4) + 1
         session[:word_ids] = Word.where(group_id: group_id).pluck(:id).shuffle
         session[:total_word] = session[:word_ids].size
         word_id = session[:word_ids].shift

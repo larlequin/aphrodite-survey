@@ -19,8 +19,9 @@ production:
   encoding: utf8
   database: db
   pool: 5
-  username: 
+  username: postgres
   password:
+  host: db
 
 cucumber:
   <<: *TEST

@@ -13,9 +13,9 @@ class WordsController < ApplicationController
     Question.all.each do | question |
       @questions << question
     end
-    last = @questions.pop
-    @questions = @questions.rotate(session[:user_id].modulo(5))
-    @questions << last
+    first = @questions.shift
+    @questions = @questions.rotate((session[:user_id]/4).modulo(5))
+    @questions.unshift(first)
   end
 
   def answers
@@ -24,12 +24,10 @@ class WordsController < ApplicationController
 
   def update
     set_variable
-    if word_params["answers_attributes"]["5"]["value"] == "0"
-      word_params["answers_attributes"].each do | key, val |
-        unless word_params["answers_attributes"][key]["value"]
-          @error = true
-          return render action: 'answers', alert: 'Error'
-        end
+    word_params["answers_attributes"].each do | key, val |
+      unless word_params["answers_attributes"][key]["value"]
+        @error = true
+        return render action: 'answers', alert: 'Error'
       end
     end
     if @word.update(word_params)
