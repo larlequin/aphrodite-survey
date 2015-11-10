@@ -1,7 +1,11 @@
-name
-familiarité
-en l'entendant ?
-en le goutant ?
-en le touchant ?
-en le sentant ?
-en le voyant ?
+key,name,min,max
+Familiarité,Dans quelle mesure connaissez-vous ce mot ?,pas du tout,totalement
+Imagerie visuelle,"Est-ce que ce mot vous évoque une image mentale très facilement et spontanément ou, au contraire, très difficilement (voire aucune image mentale) ?",très difficilement,très facilement
+Imagerie auditive,"Est-ce que ce mot vous évoque un son associé très facilement et spontanément ou, au contraire, très difficilement (voire aucun son) ?",très difficilement,très facilement
+Imagerie motrice,"Est-ce que ce mot vous évoque un geste associé très facilement et spontanément ou, au contraire, très difficilement (voire aucun geste) ?",très difficilement,très facilement
+Imagerie olfactive,"Est-ce que ce mot vous évoque une odeur associée très facilement et spontanément ou, au contraire, très difficilement (voire aucune odeur) ?",très difficilement,très facilement
+Imagerie gustative,"Est-ce que ce mot vous évoque un goût associé très facilement et spontanément ou, au contraire, très difficilement (voire aucun goût) ?",très difficilement,très facilement
+Concrétude,Ce mot vous évoque-t-il quelque chose de concret (directement perceptible par les sens) ?,pas du tout,totalement
+Valence,Est-ce que ce mot génère chez vous un sentiment agréable ou désagréable ?,très désagréable,très agréable
+Intensité sonore,"Si ce mot vous évoque un son, est-il intense ?",pas du tout intense,très intense
+Mouvement propre,"Est-ce que ce mot est associé à un mouvement propre, c'est-à-dire est ce que l'objet/ la personne/ la situation que représente ce mot est capable de se déplacer seul(e) ?",pas du tout,totalement

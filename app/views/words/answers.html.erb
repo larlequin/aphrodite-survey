@@ -7,50 +7,32 @@
   <% if @error %>
     <div class="alert-box alert">Veuillez répondre à toutes les questions</div>
   <% end %>
-
-  <h2>Dans quelle mesure connaissez-vous ce mot : <span class="word">"<%= @word.name %>"</span> ?</h2>
+  
+  <h1><%= @word.name %></h1>
+      <% @questions.each do | question | -%>
           <div class="large-12 columns question_answer">
-            <div class="question large-4 small-12 columns"></div>
-            <div class="question large-2 small-2 columns question-label">pas du tout</div>
-            <div class='nested-fields large-4 small-8 columns'>
-              <%= f.simple_fields_for :answers, @questions[0].answers.find_or_initialize_by(
-                user_id: session[:user_id],
-                word_id: @word.id,
-                question_id: @questions[0].id) do |a| -%>
-                <%= a.collection_radio_buttons :value,
-                          [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
-                          :first,
-                          :last,
-                          collection_wrapper_tag: 'div'
-                        -%>
-                  <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
-                  <%= a.input :question_id, :as => :hidden, :input_html => {:value => @questions[0].id} -%> 
-              <% end -%>
-            </div>
-            <div class="question large-2 small-2 columns question-label">grandement</div>
-         </div>
-
-  <h2>Dans quelle mesure le ressentez-vous ?</h2>
-
-      <% @questions[1..5].each do | question | -%>
-          <div class="large-12 columns question_answer">
-            <div class="question large-6 small-12 columns"><%= question.name %></div>
-            <div class='nested-fields large-4 small-8 columns'>
+            <div class="question large-12 small-12 columns"><%= question.name %></div>
+            <div class='nested-fields large-12 small-12 columns'>
               <%= f.simple_fields_for :answers, question.answers.find_or_initialize_by(
                 user_id: session[:user_id],
                 word_id: @word.id,
                 question_id: question.id) do |a| -%>
-                <%= a.collection_radio_buttons :value,
+                   <div class="large-2 columns"></div>
+                   <div class="large-2 columns question-label"><%= question.min %></div>
+                   <div class='nested-fields large-4 columns'>
+                   <%= a.collection_radio_buttons :value,
                           [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
                           :first,
                           :last,
                           collection_wrapper_tag: 'div'
                         -%>
-                  <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
-                  <%= a.input :question_id, :as => :hidden, :input_html => {:value => question.id} -%> 
+                    <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
+                    <%= a.input :question_id, :as => :hidden, :input_html => {:value => question.id} -%>
+                    </div>
+                <div class="large-2 columns question-label"><%= question.max %></div>
+                <div class="large-2 columns"></div>
               <% end -%>
             </div>
-            <div class="question large-2 small-2 columns question-label"></div>
          </div>
   <% end -%>
   <div class="form-actions">

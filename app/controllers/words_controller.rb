@@ -9,13 +9,7 @@ class WordsController < ApplicationController
   def set_variable
     @word = Word.find(params[:id])
     @rate = (session[:total_word] - session[:word_ids].size - 1) * 100.0 / session[:total_word] 
-    @questions = []
-    Question.all.each do | question |
-      @questions << question
-    end
-    first = @questions.shift
-    @questions = @questions.rotate((session[:user_id]/4).modulo(5))
-    @questions.unshift(first)
+    @questions = Question.all
   end
 
   def answers
@@ -32,14 +26,12 @@ class WordsController < ApplicationController
     end
     if @word.update(word_params)
       if session[:word_ids].size == 0
-        puts "ending"
         user = User.find(session[:user_id])
         user.stop = Time.now
         user.save
         reset_session
         redirect_to '/end'
       else
-        puts "okokok"
         word_id = session[:word_ids].shift
         session[:current_word_id] = word_id
         redirect_to :controller => 'words', :action => 'answers', :id => word_id

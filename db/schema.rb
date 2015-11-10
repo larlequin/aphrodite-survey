@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20140823235021) do
   end
 
   create_table "questions", force: true do |t|
+    t.string   "key"
     t.string   "name"
+    t.string   "min"
+    t.string   "max"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140823235021) do
 
   create_table "words", force: true do |t|
     t.string   "name"
+    t.boolean  "positive"
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"

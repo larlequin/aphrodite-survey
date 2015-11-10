@@ -9,7 +9,10 @@ question_file = File.join(Rails.root, "db", "seed_data", "question.csv")
 CSV.foreach(question_file, :headers => true, :encoding => 'UTF-8') do |row|
   row = row.to_hash
   Question.create(
+    key: row['key'],
     name: row['name'],
+    min: row['min'],
+    max: row['max'],
     )
 end
 
@@ -21,7 +24,6 @@ CSV.foreach(word_file, :headers => true, :encoding => 'UTF-8') do |row|
   Word.create(
     name: row['name'],
     group_id: row['group_id'],
+    positive: row['positive'],
     )
 end
-
-
