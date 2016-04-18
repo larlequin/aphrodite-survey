@@ -11,14 +11,7 @@
         <%= f.email_field :email %>
         <%= f.date_field :birthdate %>
         <%= f.input :gender, collection: [:male, :female], label: 'Sexe'%>
-        <%= f.collection_radio_buttons :quebeker, label:"Êtes vous né(e) au Québec ?",
-        [[1, 'oui'], [2, 'non']],
-                :first,
-                :last,
-                collection_wrapper_tag: 'div',
-                required: true
-              -%>
-%>
+        <%= f.collection_radio_buttons :quebeker, collection: [:true, :false], label:"Êtes vous né(e) au Québec ?" %>
         <%= f.number_field :yearsquebec %>
         <%= f.input :mothertongue, label:"Langue maternelle" %>
         <%= f.input :education, label:"Années d’études complétée" %>
