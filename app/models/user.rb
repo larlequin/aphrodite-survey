@@ -1,6 +1,7 @@
 # Update user model to add new questions
 class User < ActiveRecord::Base
   validates :name, presence: true
+  validates :firstname, presence:true
   validates :age, presence: true
   validates :email, presence: true
   validates :birthdate, presence:true

@@ -6,8 +6,23 @@
     <div class="form-inputs">
       <div class="large-6 columns">
         <%= f.input :name, label: 'Nom' %>
+        <%= f.input :firstname, label: 'Prénom' %>
         <%= f.input :age %>
+        <%= f.email_field :email %>
+        <%= f.date_field :birthdate %>
         <%= f.input :gender, collection: [:male, :female], label: 'Sexe'%>
+        <%= f.collection_radio_buttons :quebeker, label:"Êtes vous né(e) au Québec ?",
+        [[1, 'oui'], [2, 'non']],
+                :first,
+                :last,
+                collection_wrapper_tag: 'div',
+                required: true
+              -%>
+%>
+        <%= f.number_field :yearsquebec %>
+        <%= f.input :mothertongue, label:"Langue maternelle" %>
+        <%= f.input :education, label:"Années d’études complétée" %>
+        <%= f.input :highestscol, label:"Plus haut diplôme obtenu" %>
       </div>
       <div class="large-12 columns">
         <div class="large-12 columns"><h3>Comment jugez-vous votre vue ?</h3></div>
