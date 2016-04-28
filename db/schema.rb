@@ -11,9 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160428172909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "word_id"
+    t.integer  "question_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions_words", id: false, force: true do |t|
+    t.integer "question_id"
+    t.integer "word_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "question1"
+    t.string   "question2"
+    t.string   "question3"
+    t.string   "question4"
+    t.string   "question5"
+    t.string   "trouble"
+    t.datetime "start"
+    t.datetime "stop"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "firstname"
+    t.date     "birthdate"
+    t.string   "quebeker"
+    t.integer  "yearsquebec"
+    t.string   "mothertongue"
+    t.string   "languages"
+    t.integer  "education"
+    t.string   "highestscol"
+    t.string   "neurotb"
+    t.string   "psytb"
+    t.string   "medoc"
+  end
+
+  create_table "words", force: true do |t|
+    t.string   "name"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
