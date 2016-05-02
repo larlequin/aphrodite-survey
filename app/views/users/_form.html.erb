@@ -7,12 +7,13 @@
       <div class="large-6 columns">
         <%= f.input :name, label: 'Nom' %>
         <%= f.input :firstname, label: 'Prénom' %>
-        <%= f.input :age %>
-        <%= f.email_field :email %>
-        <%= f.date_field :birthdate %>
+        <%= f.input :email, label: 'Votre courriel' %><!--email_field-->
         <%= f.input :gender, collection: [:male, :female], label: 'Sexe'%>
-        <%= f.collection_radio_buttons :quebeker, collection: [:true, :false], label:"Êtes vous né(e) au Québec ?" %>
-        <%= f.number_field :yearsquebec %>
+        <%= f.input :age %>
+        <%= f.input :birthdate, label: 'Date de naissance' %><!--date_field-->
+        <!--collection_radio_buttons-->
+        <%= f.input :quebeker, collection: [:oui, :non], label:"Êtes vous né(e) au Québec ?" %>
+        <%= f.input :yearsquebec, label: "Combien d'années passées au Québec ?" %>
         <%= f.input :mothertongue, label:"Langue maternelle" %>
         <%= f.input :education, label:"Années d’études complétée" %>
         <%= f.input :highestscol, label:"Plus haut diplôme obtenu" %>
@@ -42,7 +43,7 @@
 
         <div class="large-12 columns"><h3>Comment jugez-vous votre sensibilité olfactive ?</h3></div>
         <div class="large-12 columns">
-        <%= f.collection_radio_buttons :question3,
+        <%= f.collection_radio_buttons :neurotb,
                 [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
                 :first,
                 :last,
@@ -53,7 +54,7 @@
  
         <div class="large-12 columns"><h3>Comment jugez-vous votre sensibilité gustative ?</h3></div>
         <div class="large-12 columns">
-        <%= f.collection_radio_buttons :question4,
+        <%= f.collection_radio_buttons :psytb,
                 [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
                 :first,
                 :last,
@@ -64,7 +65,7 @@
 
         <div class="large-12 columns"><h3>Comment jugez-vous votre tactile ?</h3></div>
         <div class="large-12 columns">
-        <%= f.collection_radio_buttons :question5,
+        <%= f.collection_radio_buttons :medoc,
                 [[1, 'mauvaise'], [2, 'satisfaisante'], [3, 'bonne'], [4, 'excellente']],
                 :first,
                 :last,
@@ -77,7 +78,7 @@
       <div class="large-12 columns">
         <div class="large-12 columns">
           <h3>Avez-vous des troubles sensoriels ou moteurs ?</h3>
-          <%= f.input :trouble, label: false  %>
+          <%= f.input :trouble, label: false %>
         </div>
       </div>
 
