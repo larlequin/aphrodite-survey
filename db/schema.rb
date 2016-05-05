@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823235021) do
+ActiveRecord::Schema.define(version: 20160505140340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,16 +26,9 @@ ActiveRecord::Schema.define(version: 20140823235021) do
   end
 
   create_table "questions", force: true do |t|
-    t.string   "key"
     t.string   "name"
-    t.integer  "group_id"
-    t.boolean  "only_not_living"
-    t.string   "min"
-    t.string   "max"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "start"
-    t.datetime "end"
   end
 
   create_table "questions_words", id: false, force: true do |t|
@@ -45,20 +38,11 @@ ActiveRecord::Schema.define(version: 20140823235021) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "age"
-    t.string   "gender"
-    t.integer  "student_group_id"
-    t.datetime "start"
-    t.datetime "stop"
-    t.string   "question1"
-    t.string   "question2"
-    t.string   "question3"
-    t.string   "trouble"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email"
     t.string   "firstname"
+    t.string   "email"
+    t.integer  "age"
     t.date     "birthdate"
+    t.string   "gender"
     t.string   "quebeker"
     t.integer  "yearsquebec"
     t.string   "mothertongue"
@@ -68,14 +52,21 @@ ActiveRecord::Schema.define(version: 20140823235021) do
     t.string   "neurotb"
     t.string   "psytb"
     t.string   "medoc"
+    t.string   "question1"
+    t.string   "question2"
+    t.string   "question3"
+    t.string   "trouble"
+    t.integer  "student_group_id"
+    t.datetime "start"
+    t.datetime "stop"
     t.string   "session_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "words", force: true do |t|
     t.string   "name"
-    t.string   "alive"
-    t.string   "sound"
-    t.string   "size"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
