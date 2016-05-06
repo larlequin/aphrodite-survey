@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428172909) do
+ActiveRecord::Schema.define(version: 20160505140340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,23 +38,11 @@ ActiveRecord::Schema.define(version: 20160428172909) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "age"
-    t.string   "gender"
-    t.string   "question1"
-    t.string   "question2"
-    t.string   "question3"
-    t.string   "question4"
-    t.string   "question5"
-    t.string   "trouble"
-    t.datetime "start"
-    t.datetime "stop"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "user"
-    t.string   "lastname"
-    t.string   "email"
     t.string   "firstname"
+    t.string   "email"
+    t.integer  "age"
     t.date     "birthdate"
+    t.string   "gender"
     t.string   "quebeker"
     t.integer  "yearsquebec"
     t.string   "mothertongue"
@@ -64,6 +52,16 @@ ActiveRecord::Schema.define(version: 20160428172909) do
     t.string   "neurotb"
     t.string   "psytb"
     t.string   "medoc"
+    t.string   "question1"
+    t.string   "question2"
+    t.string   "question3"
+    t.string   "trouble"
+    t.integer  "student_group_id"
+    t.datetime "start"
+    t.datetime "stop"
+    t.string   "session_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "words", force: true do |t|

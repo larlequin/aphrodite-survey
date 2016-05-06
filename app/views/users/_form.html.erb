@@ -15,7 +15,8 @@
         <%= f.input :quebeker, collection: [:oui, :non], label:"Êtes vous né(e) au Québec ?" %>
         <%= f.input :yearsquebec, label: "Combien d'années passées au Québec ?" %>
         <%= f.input :mothertongue, label:"Langue maternelle" %>
-        <%= f.input :education, label:"Années d’études complétée" %>
+        <%= f.input :languages, label:"Langue parlée" %>
+        <%= f.input :education, label:"Années d’études complétées" %>
         <%= f.input :highestscol, label:"Plus haut diplôme obtenu" %>
       </div>
       <div class="large-12 columns">
@@ -84,7 +85,7 @@
 
       <div class="form-actions large-12 columns">
       <%= f.button :submit, "Valider", :class => "success right" %>
-    </div>  
+    </div>
   </div>
 </div>
 
