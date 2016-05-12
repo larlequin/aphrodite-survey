@@ -1,8 +1,14 @@
 <div class="row">
+
   <div class="large-8 columns">
     <h1>C'est fini ! Merci de votre participation !</h1>
   </div>
+
   <p class='instruction'>
-  Explication pour recevoir la compensation
+  <% if session[:expired] %> <!-- not working: session not in the scope of view.site ? -->
+    Explication temps expiré
+  <% else %>
+    Explication pour recevoir la compensation
+  <% end %>
   </p>
 </div>

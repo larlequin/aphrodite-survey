@@ -16,6 +16,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.start = Time.now
+    #TODO À déplacer quand l'utilisateur commence vraiment sa session
+    @user.end_of_session = Time.now + 90.minutes
     if @user.save
         session[:user_id] = @user.id
         session[:user_name] = @user.name

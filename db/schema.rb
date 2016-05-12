@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160505140340) do
     t.string   "question3"
     t.string   "trouble"
     t.integer  "student_group_id"
+    t.datetime "end_of_session"
     t.datetime "start"
     t.datetime "stop"
     t.string   "session_token"
