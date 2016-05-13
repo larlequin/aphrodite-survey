@@ -4,6 +4,10 @@
     <span class="meter" style="width: <%= @rate %>%"></span>
   </div>
 
+  <% if @timeWarning %>
+    <div class="alert-box alert">Il vous reste moins de 10 minutes pour compléter votre session</div>
+  <% end %>
+
   <% if @error %>
     <div class="alert-box alert">Veuillez répondre à toutes les questions</div>
   <% end %>

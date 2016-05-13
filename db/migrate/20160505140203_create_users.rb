@@ -22,6 +22,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :trouble
 
       t.integer :student_group_id
+      t.datetime :end_of_session
       t.datetime :start
       t.datetime :stop
 

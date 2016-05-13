@@ -8,7 +8,15 @@ class WordsController < ApplicationController
 
   def set_variable
     @word = Word.find(params[:id])
-    @rate = (session[:total_word] - session[:word_ids].size - 1) * 100.0 / session[:total_word] 
+    @rate = (session[:total_word] - session[:word_ids].size - 1) * 100.0 / session[:total_word]
+    @timeRemaining = User.find(session[:user_id]).end_of_session - Time.now
+    session[:expired] = false
+    @timeWarning = false
+    if @timeRemaining <= 0
+      session[:expired] = true
+    elsif @timeRemaining < 600 # 10 minutes
+      @timeWarning = true
+    end
     @questions = []
     Question.all.each do | question |
       @questions << question
@@ -31,7 +39,7 @@ class WordsController < ApplicationController
       end
     end
     if @word.update(word_params)
-      if session[:word_ids].size == 0
+      if session[:word_ids].size == 0 or session[:expired]
         puts "ending"
         user = User.find(session[:user_id])
         user.stop = Time.now
