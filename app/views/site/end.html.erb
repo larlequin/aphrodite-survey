@@ -1,14 +1,19 @@
 <div class="row">
 
-  <div class="large-8 columns">
+  <div class="large-12 columns">
     <h1>C'est fini ! Merci de votre participation !</h1>
+
+    <p class='instruction'>
+    <% if session[:expired] %> <!-- not working: session not in the scope of view.site ? -->
+      Explication temps expiré
+    <% else %>
+      Vous recevrez un courriel contenant la carte cadeau dans les prochains jours.
+    <% end %>
+    </p>
+
+    <p class='instruction'>
+      Si vous avez des questions, voici notre courriel : labo.brambati@gmail.com
+    </p>
   </div>
 
-  <p class='instruction'>
-  <% if session[:expired] %> <!-- not working: session not in the scope of view.site ? -->
-    Explication temps expiré
-  <% else %>
-    Explication pour recevoir la compensation
-  <% end %>
-  </p>
 </div>
