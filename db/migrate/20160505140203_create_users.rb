@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :firstname
       t.string :email
       t.integer :age
-      t.date :birthdate
       t.string :gender
       t.string :quebeker
       t.integer :yearsquebec
@@ -13,13 +12,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :languages
       t.integer :education
       t.string :highestscol
+      t.string :question1
+      t.string :question2
       t.string :neurotb
       t.string :psytb
       t.string :medoc
-      t.string :question1
-      t.string :question2
-      t.string :question3
-      t.string :trouble
 
       t.integer :student_group_id
       t.datetime :end_of_session
