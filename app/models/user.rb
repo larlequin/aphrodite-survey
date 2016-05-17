@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :age, presence: true
   validates :email, presence: true
-  validates :birthdate, presence: true
   validates :gender, presence: true
   validates :quebeker, presence: true
   validates :yearsquebec, presence: false
@@ -14,7 +13,7 @@ class User < ActiveRecord::Base
   validates :highestscol, presence: true
   validates :question1, presence: true
   validates :question2, presence: true
-  validates :neurotb, presence: true
-  validates :psytb, presence: true
-  validates :medoc, presence: true
+  validates :neurotb, presence: false
+  validates :psytb, presence: false
+  validates :medoc, presence: false
 end

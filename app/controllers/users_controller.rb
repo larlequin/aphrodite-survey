@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
         session[:user_id] = @user.id
         session[:user_name] = @user.name
-        group_id = @user.id.modulo(4) + 1
+        group_id = @user.id.modulo(12) + 1
         session[:word_ids] = Word.where(group_id: group_id).pluck(:id).shuffle
         session[:total_word] = session[:word_ids].size
         word_id = session[:word_ids].shift
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(
-        :name, :firstname, :age, :email, :birthdate, :gender, :quebeker,
+        :name, :firstname, :age, :email, :gender, :quebeker,
         :yearsquebec, :mothertongue, :languages, :education, :highestscol,
         :question1, :question2, :neurotb, :psytb, :medoc)
     end
