@@ -44,8 +44,13 @@ class WordsController < ApplicationController
         user = User.find(session[:user_id])
         user.stop = Time.now
         user.save
-        reset_session
-        redirect_to '/end'
+        if session[:expired]
+          reset_session
+          redirect_to '/expired'
+        else
+          reset_session
+          redirect_to '/end'
+        end
       else
         puts "okokok"
         word_id = session[:word_ids].shift
