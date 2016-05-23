@@ -1,5 +1,6 @@
 class SiteController < ApplicationController
   def index
+    @user = User.new()
     if session[:start]
       redirect_to :controller => 'words',
         :action => 'answers',
@@ -8,7 +9,15 @@ class SiteController < ApplicationController
   end
 
   def login
-    #TODO
+    email = params[:user][:email]
+    @user = User.find_by_email(email)
+    if @user
+      session[:user_id] = @user.id
+      session[:user_name] = @user.name
+    else
+      flash[:alert] = "L'adresse email #{email} n'a pas été trouvé, êtes vous bien enregistré"
+    end
+    redirect_to '/'
   end
 
   def logout

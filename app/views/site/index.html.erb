@@ -24,7 +24,14 @@
       Si vous êtes déjà enregistré, cliquez ici :
       </p>
 
-      <%= link_to "Commencer le questionnaire", new_user_path, :class => "button button-large" %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "alert-box #{key}" %>
+      <% end %>
+
+      <%= simple_form_for(@user, :url => login_path) do |f| %>
+        <%= f.input :email, label: 'email' %>
+        <%= f.button :submit, "Commencer le questionnaire", :class => "success right" %>
+      <% end %>
     <% else %>
       <p class='instruction'>
         TODO
