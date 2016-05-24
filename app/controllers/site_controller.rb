@@ -14,6 +14,8 @@ class SiteController < ApplicationController
     if @user
       session[:user_id] = @user.id
       session[:user_name] = @user.name
+    elsif @user.end_of_session.to_s != ""
+      flash[:alert] = "L'adresse email #{email} a déjà participé au questionnaire. Si c'est une erreur, contactez labo.brambati@gmail.com"
     else
       flash[:alert] = "L'adresse email #{email} n'a pas été trouvé, êtes vous bien enregistré"
     end
