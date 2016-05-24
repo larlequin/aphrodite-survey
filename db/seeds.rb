@@ -10,6 +10,8 @@ CSV.foreach(question_file, :headers => true, :encoding => 'UTF-8') do |row|
   row = row.to_hash
   Question.create(
     name: row['name'],
+    min: row['min'],
+    max: row['max'],
     )
 end
 

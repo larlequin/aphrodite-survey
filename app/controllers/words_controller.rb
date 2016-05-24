@@ -17,13 +17,7 @@ class WordsController < ApplicationController
     elsif @timeRemaining < 600 # 10 minutes
       @timeWarning = true
     end
-    @questions = []
-    Question.all.each do | question |
-      @questions << question
-    end
-    first = @questions.shift
-    @questions = @questions.rotate((session[:user_id]/4).modulo(5))
-    @questions.unshift(first)
+    @question = Question.find(session[:current_question_id])
   end
 
   def answers
@@ -32,6 +26,10 @@ class WordsController < ApplicationController
 
   def update
     set_variable
+    if session[:expired]
+      reset_session
+      redirect_to '/expired'
+    end
     word_params["answers_attributes"].each do | key, val |
       unless word_params["answers_attributes"][key]["value"]
         @error = true
@@ -39,23 +37,21 @@ class WordsController < ApplicationController
       end
     end
     if @word.update(word_params)
-      if session[:word_ids].size == 0 or session[:expired]
-        puts "ending"
+      if session[:question_ids].size != 0
+        word_id = session[:current_word_id]
+        session[:current_question_id] = session[:question_ids].shift
+        redirect_to :controller => 'words', :action => 'answers', :id => word_id
+      elsif session[:word_ids].size != 0
+        word_id = session[:word_ids].shift
+        session[:current_word_id] = word_id
+        session[:question_ids] = Question.all.ids
+        redirect_to :controller => 'words', :action => 'answers', :id => word_id
+      else
         user = User.find(session[:user_id])
         user.stop = Time.now
         user.save
-        if session[:expired]
-          reset_session
-          redirect_to '/expired'
-        else
-          reset_session
-          redirect_to '/end'
-        end
-      else
-        puts "okokok"
-        word_id = session[:word_ids].shift
-        session[:current_word_id] = word_id
-        redirect_to :controller => 'words', :action => 'answers', :id => word_id
+        reset_session
+        redirect_to '/end'
       end
     else
       render action: 'answers', alert: 'Error'

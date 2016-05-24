@@ -36,6 +36,8 @@ class SiteController < ApplicationController
     session[:total_word] = session[:word_ids].size
     word_id = session[:word_ids].shift
     session[:current_word_id] = word_id
+    session[:question_ids] = Question.all.ids
+    session[:current_question_id] = session[:question_ids].shift
     session[:start] = @user.start
     session[:end_of_session] = @user.end_of_session
     redirect_to :controller => 'words', :action => 'answers', :id => word_id
