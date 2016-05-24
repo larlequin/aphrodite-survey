@@ -22,7 +22,7 @@ class WordsController < ApplicationController
 
   def answers
     set_variable
-   end
+  end
 
   def update
     set_variable
@@ -40,11 +40,15 @@ class WordsController < ApplicationController
       if session[:question_ids].size != 0
         word_id = session[:current_word_id]
         session[:current_question_id] = session[:question_ids].shift
+        #@answer = Answer.last
+        #@answer[:response_time] = Time.now - @answer[:created_at]
         redirect_to :controller => 'words', :action => 'answers', :id => word_id
       elsif session[:word_ids].size != 0
         word_id = session[:word_ids].shift
         session[:current_word_id] = word_id
         session[:question_ids] = Question.all.ids
+        #@answer = Answer.last
+        #@answer[:response_time] = Time.now - @answer[:created_at]
         redirect_to :controller => 'words', :action => 'answers', :id => word_id
       else
         user = User.find(session[:user_id])
