@@ -1,29 +1,53 @@
 <div class="row">
   <div class="large-12 columns">
 
-    <p class='instruction'>
-    Vous allez participer à une étude qui évalue votre ressenti subjectif par rapport à des noms en français.
-    </p>
+    <% unless session[:user_id] %>
+      <p class='instruction'>
+      Vous allez participer à une étude qui évalue votre ressenti subjectif par rapport à des noms en français.
+      </p>
 
-    <p class='instruction'>
-    Le temps de votre participation est d’une durée maximale d’une heure et demie.
-    </p>
+      <p class='instruction'>
+      Le temps de votre participation est d’une durée maximale d’une heure et demie.
+      </p>
 
-    <p class='instruction'>
-    Seuls les participants qui auront terminé tout le questionnaire recevront la carte cadeau.
-    </p>
+      <p class='instruction'>
+      Seuls les participants qui auront terminé tout le questionnaire recevront la carte cadeau.
+      </p>
 
-    <p class='instruction'>
-    Ne vous connectez pas immédiatement au site du questionnaire si vous n’êtes pas sûr d’avoir une heure et demie de temps libre sans aucune distraction (seul dans une pièce, ambiance calme, pas de téléphone, etc…)
-    </p>
+      <p class='instruction'>
+      Ne vous connectez pas immédiatement au site du questionnaire si vous n’êtes pas sûr d’avoir une heure et demie de temps libre sans aucune distraction (seul dans une pièce, ambiance calme, pas de téléphone, etc…)
+      </p>
 
-    <%= link_to "S'enregistrer", new_user_path, :class => "button button-large" %>
+      <%= link_to "S'enregistrer", new_user_path, :class => "button button-large" %>
 
-    <p class='instruction'>
-    Si vous êtes déjà enregistré, cliquez ici :
-    </p>
+      <p class='instruction'>
+      Si vous êtes déjà enregistré, cliquez ici :
+      </p>
 
-    <%= link_to "Commencer le questionnaire", new_user_path, :class => "button button-large" %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "alert-box #{key}" %>
+      <% end %>
+
+      <%= simple_form_for(@user, :url => login_path) do |f| %>
+        <%= f.input :email, label: 'email' %>
+        <%= f.button :submit, "Commencer le questionnaire", :class => "success right" %>
+      <% end %>
+    <% else %>
+      <p class='instruction'>
+        TODO
+        blablablabla
+
+      <p class='instruction'>
+        Attention maintenant va falloir bosser, si tu peux pas fait le questionnaire plus tard
+      </p>
+
+      <p class='instruction'>
+        blablabla
+      </p>
+
+      <%= link_to "Commencer maintenant", start_path, :class => "button button-large" %>
+      <%= link_to "Faire le questionnaire plus tard", logout_path, :class => "button button-large" %>
+    <% end %>
 
   </div>
 </div>

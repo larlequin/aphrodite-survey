@@ -15,18 +15,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.start = Time.now
-    #TODO À déplacer quand l'utilisateur commence vraiment sa session
-    @user.end_of_session = Time.now + 90.minutes
     if @user.save
         session[:user_id] = @user.id
         session[:user_name] = @user.name
-        group_id = @user.id.modulo(12) + 1
-        session[:word_ids] = Word.where(group_id: group_id).pluck(:id).shuffle
-        session[:total_word] = session[:word_ids].size
-        word_id = session[:word_ids].shift
-        session[:current_word_id] = word_id
-        redirect_to :controller => 'words', :action => 'answers', :id => word_id
+        redirect_to '/'
     else
       respond_to do |format|
         format.html { render :new }

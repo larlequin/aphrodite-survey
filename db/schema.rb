@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160505140340) do
 
   create_table "questions", force: true do |t|
     t.string   "name"
+    t.string   "min"
+    t.string   "max"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
