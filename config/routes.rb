@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   get '/start', to: 'site#start'
   get '/expired', to: 'site#expired'
 
-  resources :words do
-    get 'answers', on: :member
-  end
+  resources :answers
 
   resources :users
 end

@@ -5,9 +5,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     if session[:user_id]
-      redirect_to :controller => 'words', 
-        :action => 'answers',
-        :id => session[:current_word_id]
+      redirect_to new_answer_path
     end
   end
 

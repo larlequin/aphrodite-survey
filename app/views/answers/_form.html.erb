@@ -1,4 +1,4 @@
-<%= simple_form_for(@word) do |f| %>
+<%= simple_form_for(@answer) do |f| %>
 
   <div class="progress large-12 success round">
     <span class="meter" style="width: <%= @rate %>%"></span>
@@ -15,15 +15,9 @@
   <h2 class="question"><%= @question.name % @word.name %></h2>
   <div class="large-2 columns question_answer question-label"><%= @question.min %></div>
   <div class="large-6 columns question_answer">
-    <%= f.simple_fields_for :answers, @question.answers.find_or_initialize_by(
-      user_id: session[:user_id],
-      word_id: @word.id,
-      question_id: @question.id) do |a| -%>
-
-      <%= a.input :value, :as => :range, :label => false, input_html: { class: 'large-12' } -%>
-      <%= a.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
-      <%= a.input :question_id, :as => :hidden, :input_html => {:value => @question.id} -%> 
-    <% end -%>
+      <%= f.input :value, :as => :range, :label => false, input_html: { class: 'large-12' } -%>
+      <%= f.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
+      <%= f.input :question_id, :as => :hidden, :input_html => {:value => @question.id} -%> 
   </div>
   <div class="large-2 columns question_answer question-label"><%= @question.max %></div>
   <div class="large-12 columns"></div>

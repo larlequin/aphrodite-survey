@@ -2,9 +2,7 @@ class SiteController < ApplicationController
   def index
     @user = User.new()
     if session[:start]
-      redirect_to :controller => 'words',
-        :action => 'answers',
-        :id => session[:current_word_id]
+      redirect_to new_answer_path
     end
   end
 
@@ -44,7 +42,7 @@ class SiteController < ApplicationController
     session[:current_question_id] = session[:question_ids].shift
     session[:start] = @user.start
     session[:end_of_session] = @user.end_of_session
-    redirect_to :controller => 'words', :action => 'answers', :id => word_id
+    redirect_to new_answer_path
   end
 
 end
