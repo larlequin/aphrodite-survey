@@ -14,9 +14,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    #if User.exists?(email: user_params[:email])
-    #  flash[:alert] = "L'adresse email #{user_params[:email]} est déjà utilisée"
-    #end
     @user = User.new(user_params)
     if @user.save
         session[:user_id] = @user.id

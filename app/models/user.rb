@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :firstname, presence: true
   validates :age, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { message: "Attention ce mail est déjà enregistré" }
   validates :gender, presence: true
   validates :quebeker, presence: true
   validates :yearsquebec, presence: false
