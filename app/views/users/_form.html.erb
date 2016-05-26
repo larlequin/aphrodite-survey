@@ -7,7 +7,7 @@
       <div class="large-6 columns">
         <%= f.input :name, label: 'Nom' %>
         <%= f.input :firstname, label: 'Prénom' %>
-        <%= f.input :email, label: 'Votre courriel' %><!--email_field-->
+        <%= f.input :email, label: 'Votre courriel', error_html: { id: 'email_error'} %>
         <%= f.input :age %>
         <%= f.input :gender, collection: [:male, :female], label: 'Sexe'%>
         <%= f.input :quebeker, collection: [:oui, :non], label:"Êtes vous né(e) au Québec ?" %>

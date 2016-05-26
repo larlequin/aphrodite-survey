@@ -5,6 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :word_id
       t.integer :question_id
       t.integer :value
+      t.float :response_time
       t.timestamps
     end
   end

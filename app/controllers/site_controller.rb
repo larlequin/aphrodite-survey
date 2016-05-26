@@ -2,9 +2,7 @@ class SiteController < ApplicationController
   def index
     @user = User.new()
     if session[:start]
-      redirect_to :controller => 'words',
-        :action => 'answers',
-        :id => session[:current_word_id]
+      redirect_to new_answer_path
     end
   end
 
@@ -12,8 +10,12 @@ class SiteController < ApplicationController
     email = params[:user][:email]
     @user = User.find_by_email(email)
     if @user
-      session[:user_id] = @user.id
-      session[:user_name] = @user.name
+      if @user.end_of_session != nil
+        flash[:alert] = "L'adresse email #{email} a déjà participé au questionnaire. Si c'est une erreur, contactez labo.brambati@gmail.com"
+      else
+        session[:user_id] = @user.id
+        session[:user_name] = @user.name
+      end
     else
       flash[:alert] = "L'adresse email #{email} n'a pas été trouvé, êtes vous bien enregistré"
     end
@@ -40,7 +42,7 @@ class SiteController < ApplicationController
     session[:current_question_id] = session[:question_ids].shift
     session[:start] = @user.start
     session[:end_of_session] = @user.end_of_session
-    redirect_to :controller => 'words', :action => 'answers', :id => word_id
+    redirect_to new_answer_path
   end
 
 end

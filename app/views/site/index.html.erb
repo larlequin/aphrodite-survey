@@ -3,7 +3,7 @@
 
     <% unless session[:user_id] %>
       <p class='instruction'>
-      Vous allez participer à une étude qui évalue votre ressenti subjectif par rapport à des noms en français.
+      Vous allez participer à une étude qui évalue votre ressenti subjectif par rapport à des mots en français.
       </p>
 
       <p class='instruction'>
@@ -21,7 +21,7 @@
       <%= link_to "S'enregistrer", new_user_path, :class => "button button-large" %>
 
       <p class='instruction'>
-      Si vous êtes déjà enregistré, cliquez ici :
+      Si vous êtes déjà enregistré, renseignez votre courriel :
       </p>
 
       <% flash.each do |key, value| %>
@@ -33,16 +33,9 @@
         <%= f.button :submit, "Commencer le questionnaire", :class => "success right" %>
       <% end %>
     <% else %>
-      <p class='instruction'>
-        TODO
-        blablablabla
 
       <p class='instruction'>
-        Attention maintenant va falloir bosser, si tu peux pas fait le questionnaire plus tard
-      </p>
-
-      <p class='instruction'>
-        blablabla
+      Ne vous connectez pas immédiatement au site du questionnaire si vous n’êtes pas sûr d’avoir une heure et demie de temps libre sans aucune distraction (seul dans une pièce, ambiance calme, pas de téléphone, etc…)
       </p>
 
       <%= link_to "Commencer maintenant", start_path, :class => "button button-large" %>

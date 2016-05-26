@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160505140340) do
     t.integer  "word_id"
     t.integer  "question_id"
     t.integer  "value"
+    t.float    "response_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
