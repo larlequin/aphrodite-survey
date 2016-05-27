@@ -12,14 +12,15 @@
     <div class="alert-box alert">Veuillez répondre à toutes les questions</div>
   <% end %>
 
-  <h2 class="question"><%= @question.name % @word.name %></h2>
-  <div class="large-2 columns question_answer question-label"><%= @question.min %></div>
+  <h1 class="large-10 word text-center"><%= @word.name %></h1>
+  <h2 class="large-10 question text-center"><%= @question.name %></h2>
+  <div class="large-2 text-center columns question_answer question-label"><%= @question.min %></div>
   <div class="large-6 columns question_answer">
       <%= f.input :value, :as => :range, :label => false, input_html: { class: 'large-12' } -%>
       <%= f.input :user_id, :as => :hidden, :input_html => {:value => session[:user_id]} -%> 
       <%= f.input :question_id, :as => :hidden, :input_html => {:value => @question.id} -%> 
   </div>
-  <div class="large-2 columns question_answer question-label"><%= @question.max %></div>
+  <div class="large-2 text-center columns question_answer question-label"><%= @question.max %></div>
   <div class="large-12 columns"></div>
   <div class="form-actions">
     <%= f.button :submit, "Suivant", :class => "success right" %>

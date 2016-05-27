@@ -26,21 +26,21 @@ class AnswersController < ApplicationController
   end
 
   def create
-    if session[:expired]
-      reset_session
-      redirect_to '/expired'
-    end
     @answer = Answer.new(answer_params)
     @answer.word_id = session[:current_word_id]
     @answer.response_time = Time.new - Time.parse(session[:answer_create_at])
     if @answer.save
-      if session[:question_ids].size != 0
+      if session[:expired]
+        reset_session
+        redirect_to '/expired'
+      elsif session[:question_ids].size != 0
         session[:current_question_id] = session[:question_ids].shift
         redirect_to new_answer_path
       elsif session[:word_ids].size != 0
         word_id = session[:word_ids].shift
         session[:current_word_id] = word_id
         session[:question_ids] = Question.all.ids
+        session[:current_question_id] = session[:question_ids].shift
         redirect_to new_answer_path
       else
         user = User.find(session[:user_id])
