@@ -16,7 +16,7 @@ CSV.foreach(question_file, :headers => true, :encoding => 'UTF-8') do |row|
 end
 
 
-word_file = File.join(Rails.root, "db", "seed_data", "word.test.csv") # Remove test during production
+word_file = File.join(Rails.root, "db", "seed_data", "word.csv")
 
 CSV.foreach(word_file, :headers => true, :encoding => 'UTF-8') do |row|
   row = row.to_hash

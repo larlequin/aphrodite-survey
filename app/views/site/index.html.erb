@@ -38,8 +38,57 @@
       Ne vous connectez pas immédiatement au site du questionnaire si vous n’êtes pas sûr d’avoir une heure et demie de temps libre sans aucune distraction (seul dans une pièce, ambiance calme, pas de téléphone, etc…)
       </p>
 
-      <%= link_to "Commencer maintenant", start_path, :class => "button button-large" %>
       <%= link_to "Faire le questionnaire plus tard", logout_path, :class => "button button-large" %>
+
+      <h1>Consignes</h1>
+
+      <h2>Familiarité du concept</h2>
+
+      <p class='instruction'>
+      À quel point le concept évoqué par le mot vous est familier ? Extrêmement peu familier / Extrêmement familier
+      </p>
+
+      <p class='instruction'>
+      Vous êtes invités à donner votre estimation sur le degré auquel vous pensez connaitre ou vous êtes en contact avec un concept.
+      </p>
+
+      <p class='instruction'>
+      Par exemple, si vous vous sentez très familier avec le concept qu’évoque le mot « Kiwi », et que ça représente pour vous une connaissance très familière, vous défilerez le curseur sur le côté droit de la barre qui indique que c’est un  concept extrêmement familier.
+      </p>
+
+      <p class='instruction'>
+      Au contraire, si un mot vous est moins familier, comme le mot « inukshuk », qui ne représente pas pour vous un concept clair et facile à définir, dans ce cas-là vous défilerez le curseur sur la cote gauche de la barre qui indique que c’est un concept extrêmement peu familier.
+      </p>
+
+      <p class='instruction'>
+      Défiler le curseur sur la barre (ou à une de ses extrémités) à l’endroit correspondant le mieux à votre réponse. Par exemple, si l’extrémité gauche de la barre correspond au maximum négatif et l’extrémité droite à l'adjectif positif, si vous jugez votre familiarité très forte, vous placerez votre trait très proche de l’extrémité positive (voire sur celle-ci). Si vous jugez par contre qu'elle est très faible, vous placerez votre curseur très proche de l’extrémité négative (voire sur celle-ci). Si vous estimez qu'elle est moyenne, vous placerez votre curseur aux environs du milieu de la barre, etc.
+      </p>
+
+      <h2>Valence émotionnelle</h2>
+
+      <p class='instruction'>
+      Evaluer la dimension émotionnelle d’un mot en indiquant si le mot lu renvoie à une émotion positive ou négative ou s’il ne renvoie à aucune émotion et est neutre. Le but est d’évaluer l’intensité émotionnelle que ça évoque ce mot en le lisant et d’estimer sur une échelle allant de extrêmement négative à extrêmement positive votre émotion ressentie.
+      </p>
+
+      <p class='instruction'>
+      Par exemple, si le mot « noir » vous rapporte une émotion très négative, vous défilerez le curseur sur la cote gauche de la barre qui est plus négatif. Mais si le mot n’évoque aucune émotion et vous vous sentez neutre par rapport à ce mot, vous défilerez la souris au milieu de la barre.
+      </p>
+
+      <p class='instruction'>
+      Si par exemple, le mot « blanc » vous rapporte une émotion très positive, vous défilerez le curseur sur la cote droite de la barre qui est plus positif. Mais si le mot n’évoque aucune émotion et vous vous sentez neutre par rapport à ce mot, vous défilerez la souris au milieu de la barre.
+      </p>
+
+      <h2>Force perceptuelle auditive et visuelle</h2>
+
+      <p class='instruction'>
+      Vous êtes invités à estimer votre expérience perceptuelle que vous avez eue avec un concept. Chacun a vécu différemment son expérience sensorielle vis-à-vis des connaissances. Par exemple, un individu peut surtout avoir entendu le bruit d’une cigale sans l’avoir souvent aperçu (force perceptuelle auditive forte et force perceptuelle visuelle plus faible), alors qu’un insectologue pourrait avoir une expérience visuo-auditive plus fréquente et homogène puisque c’est son domaine d’expertise. Alors si vous avez une représentation auditive ou visuelle très forte du mot lu, vous défilerez le curseur sur le côté droit de la barre indiquant une expérience extrêmement forte.
+      </p>
+
+      <p class='instruction'>
+      Certains mots plus abstraits comme « impossible », peuvent être reliés à des représentations concrètes dans le vécu personnel (images, sons, etc…). Vous pouvez relier les mots abstraits à des expériences personnelles en rapport avec ces mots.
+      </p>
+
+      <%= link_to "Commencer maintenant", start_path, :class => "button button-large" %>
     <% end %>
 
   </div>
